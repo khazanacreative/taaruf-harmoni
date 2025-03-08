@@ -182,7 +182,36 @@ const TaarufProcess = () => {
                         ))}
                       </div>
                       
-                      <TaarufProcessComponent currentStep={taaruf.currentStep} />
+                      {/* Update the TaarufProcessComponent call to pass props */}
+                      <div className="mb-4">
+                        {taaruf.currentStep === 1 && (
+                          <div className="p-4 bg-muted/20 rounded-lg">
+                            <h4 className="font-medium mb-2">Tahap Komunikasi Awal</h4>
+                            <p className="text-sm">Pada tahap ini, Anda dan calon pasangan saling mengenal visi, misi, dan nilai-nilai dasar dalam pernikahan.</p>
+                          </div>
+                        )}
+                        
+                        {taaruf.currentStep === 2 && (
+                          <div className="p-4 bg-muted/20 rounded-lg">
+                            <h4 className="font-medium mb-2">Tahap Diskusi Mendalam</h4>
+                            <p className="text-sm">Saatnya membahas lebih detail tentang kehidupan, kebiasaan, harapan terhadap pasangan, dan rencana keluarga.</p>
+                          </div>
+                        )}
+                        
+                        {taaruf.currentStep === 3 && (
+                          <div className="p-4 bg-muted/20 rounded-lg">
+                            <h4 className="font-medium mb-2">Tahap Pelibatan Keluarga</h4>
+                            <p className="text-sm">Waktunya melibatkan wali atau keluarga untuk mendiskusikan rencana pernikahan lebih lanjut.</p>
+                          </div>
+                        )}
+                        
+                        {taaruf.currentStep === 4 && (
+                          <div className="p-4 bg-muted/20 rounded-lg">
+                            <h4 className="font-medium mb-2">Tahap Pertemuan Nadzor</h4>
+                            <p className="text-sm">Pertemuan langsung dengan kehadiran wali untuk menentukan kelanjutan hubungan menuju pernikahan.</p>
+                          </div>
+                        )}
+                      </div>
                       
                       {taaruf.currentStep === 3 && (
                         <div className="mt-4">

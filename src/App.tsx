@@ -13,6 +13,9 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import TaarufRequests from "./pages/TaarufRequests";
 import TaarufProcess from "./pages/TaarufProcess";
+import Dashboard from "./pages/Dashboard";
+import Gallery from "./pages/Gallery";
+import MarriageProcess from "./pages/MarriageProcess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +34,9 @@ const App = () => (
           <Route path="/search" element={<Search />} />
           <Route path="/taaruf-requests" element={<TaarufRequests />} />
           <Route path="/taaruf-process" element={<TaarufProcess />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/marriage-process" element={<MarriageProcess />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

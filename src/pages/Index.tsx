@@ -57,8 +57,8 @@ const Index = () => {
             <div className="mt-12 md:mt-16 p-1 rounded-xl bg-gradient-to-r from-taaruf-blue/40 via-background to-taaruf-green/40">
               <div className="glass-card w-full overflow-hidden rounded-lg">
                 <img 
-                  src="https://cdn.pixabay.com/photo/2021/02/26/16/37/muslim-6052483_1280.jpg" 
-                  alt="Pasangan Muslim" 
+                  src="https://cdn.pixabay.com/photo/2021/02/15/17/38/arabic-6018638_1280.png" 
+                  alt="Banner Islami" 
                   className="w-full h-64 md:h-80 object-cover"
                 />
               </div>

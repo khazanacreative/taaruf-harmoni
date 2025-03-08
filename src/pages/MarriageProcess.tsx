@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,7 +10,7 @@ import {
   User, 
   MessageSquare, 
   Eye, 
-  Ring, 
+  GemIcon,
   Home,
   ArrowRight,
   FileText
@@ -20,8 +19,8 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 const MarriageProcess = () => {
-  const [activeStep, setActiveStep] = useState(3); // Assuming the user is at step 3 of the process
-  
+  const [activeStep, setActiveStep] = useState(3);
+
   const steps = [
     {
       id: 1,
@@ -43,7 +42,7 @@ const MarriageProcess = () => {
       id: 3,
       title: 'Khitbah',
       description: 'Proses lamaran atau pinangan resmi kepada pihak keluarga',
-      icon: Ring,
+      icon: GemIcon,
       completed: activeStep > 3,
       active: activeStep === 3,
     },
@@ -72,9 +71,9 @@ const MarriageProcess = () => {
       active: activeStep === 6,
     },
   ];
-  
+
   const progress = ((activeStep - 1) / (steps.length - 1)) * 100;
-  
+
   const currentPartner = {
     name: "Fatimah",
     age: 25,
@@ -83,7 +82,7 @@ const MarriageProcess = () => {
     startDate: "15 Agustus 2023",
     planningDate: "24 Oktober 2023",
   };
-  
+
   const tasks = [
     { id: 1, title: "Mempersiapkan dokumen pernikahan", completed: true },
     { id: 2, title: "Menghadiri kursus pra-nikah", completed: true },
@@ -91,7 +90,7 @@ const MarriageProcess = () => {
     { id: 4, title: "Mendiskusikan rencana walimah", completed: false },
     { id: 5, title: "Mempersiapkan tempat tinggal", completed: false },
   ];
-  
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

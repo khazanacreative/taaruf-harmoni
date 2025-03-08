@@ -12,10 +12,10 @@ const Header = () => {
   const isAuthenticated = false;
   
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/search', label: 'Search', icon: <Search className="h-4 w-4 mr-1" />, authRequired: true },
-    { path: '/taaruf-requests', label: 'Requests', icon: <Heart className="h-4 w-4 mr-1" />, authRequired: true },
-    { path: '/profile', label: 'Profile', icon: <UserRound className="h-4 w-4 mr-1" />, authRequired: true },
+    { path: '/', label: 'Beranda' },
+    { path: '/search', label: 'Cari', icon: <Search className="h-4 w-4 mr-1" />, authRequired: true },
+    { path: '/taaruf-requests', label: 'Permintaan', icon: <Heart className="h-4 w-4 mr-1" />, authRequired: true },
+    { path: '/profile', label: 'Profil', icon: <UserRound className="h-4 w-4 mr-1" />, authRequired: true },
   ];
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -30,7 +30,7 @@ const Header = () => {
           <div className="h-8 w-8 rounded-full bg-gradient-to-br from-taaruf-blue to-taaruf-green flex items-center justify-center">
             <Heart className="h-4 w-4 text-white" />
           </div>
-          <span className="text-xl font-bold">Taaruf<span className="text-taaruf-blue">Harmoni</span></span>
+          <span className="text-xl font-bold">Taaruf<span className="text-taaruf-blue">ArRahman</span></span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
@@ -49,13 +49,13 @@ const Header = () => {
           
           {isAuthenticated ? (
             <Button variant="ghost" size="sm" asChild>
-              <Link to="/logout">Logout</Link>
+              <Link to="/logout">Keluar</Link>
             </Button>
           ) : (
             <Button className="bg-gradient-to-r from-taaruf-blue to-taaruf-green hover:opacity-90" size="sm" asChild>
               <Link to="/login">
                 <LogIn className="h-4 w-4 mr-1.5" />
-                Login
+                Masuk
               </Link>
             </Button>
           )}
@@ -102,7 +102,7 @@ const Header = () => {
                 className="mt-4" 
                 asChild
               >
-                <Link to="/logout" onClick={closeMenu}>Logout</Link>
+                <Link to="/logout" onClick={closeMenu}>Keluar</Link>
               </Button>
             ) : (
               <Button 
@@ -112,7 +112,7 @@ const Header = () => {
               >
                 <Link to="/login" onClick={closeMenu}>
                   <LogIn className="h-5 w-5 mr-2" />
-                  Login
+                  Masuk
                 </Link>
               </Button>
             )}

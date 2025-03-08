@@ -12,18 +12,18 @@ const Footer = () => {
           <div className="h-6 w-6 rounded-full bg-gradient-to-br from-taaruf-blue to-taaruf-green flex items-center justify-center">
             <Heart className="h-3 w-3 text-white" />
           </div>
-          <span className="text-sm font-medium">TaarufHarmoni</span>
+          <span className="text-sm font-medium">Taaruf Ar Rahman</span>
         </div>
         
         <div className="flex items-center gap-6">
           <Link to="/about" className="text-xs text-foreground/70 hover:text-taaruf-blue transition-colors">
-            About
+            Tentang Kami
           </Link>
           <Link to="/privacy" className="text-xs text-foreground/70 hover:text-taaruf-blue transition-colors">
-            Privacy
+            Privasi
           </Link>
           <Link to="/terms" className="text-xs text-foreground/70 hover:text-taaruf-blue transition-colors">
-            Terms
+            Ketentuan
           </Link>
           <Link to="/faq" className="text-xs text-foreground/70 hover:text-taaruf-blue transition-colors">
             FAQ
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
         
         <div className="text-xs text-foreground/60">
-          &copy; {currentYear} TaarufHarmoni. All rights reserved.
+          &copy; {currentYear} Taaruf Ar Rahman. Hak Cipta Dilindungi.
         </div>
       </div>
     </footer>

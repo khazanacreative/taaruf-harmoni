@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,6 +20,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,7 +45,20 @@ const AuthForm = ({ type }: AuthFormProps) => {
         description: type === 'login' ? 'Welcome back!' : 'Please complete your profile.',
       });
       
-      // Redirect would happen here
+      // Set user authentication in localStorage (simple auth)
+      localStorage.setItem('taaruf_auth', JSON.stringify({
+        isAuthenticated: true,
+        email: email,
+        fullName: type === 'login' ? 'User' : fullName,
+        gender: type === 'login' ? 'male' : gender
+      }));
+      
+      // Redirect after successful authentication
+      if (type === 'login') {
+        navigate('/dashboard');
+      } else {
+        navigate('/profile');
+      }
     } catch (error) {
       toast({
         title: 'Authentication failed',

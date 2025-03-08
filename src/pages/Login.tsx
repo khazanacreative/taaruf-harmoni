@@ -1,11 +1,20 @@
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import AuthForm from '@/components/auth/AuthForm';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 const Login = () => {
+  // Check if user is already logged in
+  const authData = localStorage.getItem('taaruf_auth');
+  const isAuthenticated = authData ? JSON.parse(authData).isAuthenticated : false;
+
+  // If already authenticated, redirect to dashboard
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart, Filter } from 'lucide-react';
-import { CriteriaSearch } from '@/components/search/CriteriaSearch';
+import CriteriaSearch from '@/components/search/CriteriaSearch';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 

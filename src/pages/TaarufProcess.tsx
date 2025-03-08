@@ -12,7 +12,7 @@ import {
   Check,
   Send
 } from 'lucide-react';
-import { TaarufProcess as TaarufProcessComponent } from '@/components/taaruf/TaarufProcess';
+import TaarufProcessComponent from '@/components/taaruf/TaarufProcess';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 

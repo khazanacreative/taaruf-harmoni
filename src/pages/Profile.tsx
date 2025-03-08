@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { CVForm } from '@/components/profile/CVForm';
+import CVForm from '@/components/profile/CVForm';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 

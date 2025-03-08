@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { AuthForm } from '@/components/auth/AuthForm';
+import AuthForm from '@/components/auth/AuthForm';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
@@ -20,7 +20,7 @@ const Register = () => {
           </div>
           
           <div className="glass-card p-6 rounded-xl">
-            <AuthForm isRegister={true} />
+            <AuthForm type="register" />
             
             <div className="mt-6 text-center text-sm">
               Sudah memiliki akun?{' '}

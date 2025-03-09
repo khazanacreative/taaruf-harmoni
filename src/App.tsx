@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,6 +20,7 @@ import Gallery from "./pages/Gallery";
 import MarriageProcess from "./pages/MarriageProcess";
 import NotFound from "./pages/NotFound";
 import PlaceholderPage from "./components/common/PlaceholderPage";
+import ProfileDetail from "./pages/ProfileDetail";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +46,11 @@ const App = () => (
           <Route path="/profile" element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          } />
+          <Route path="/profile/:id" element={
+            <ProtectedRoute>
+              <ProfileDetail />
             </ProtectedRoute>
           } />
           <Route path="/search" element={

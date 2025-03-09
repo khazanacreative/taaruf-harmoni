@@ -319,6 +319,7 @@ const ProfileDetail = () => {
           </div>
         </div>
       </div>
+    </AppLayout>
   );
 };
 

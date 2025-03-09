@@ -2,15 +2,15 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Slider } from '@/components/ui/slider';
 import { Filter, Search as SearchIcon } from 'lucide-react';
+import CustomSlider from '@/components/ui/custom-slider';
 
 interface CriteriaSearchProps {
   onSearch: (criteria: any) => void;
 }
 
 const CriteriaSearch = ({ onSearch }: CriteriaSearchProps) => {
-  const [ageRange, setAgeRange] = useState([20, 40]);
+  const [ageRange, setAgeRange] = useState<[number, number]>([20, 40]);
   const [location, setLocation] = useState('all');
   const [education, setEducation] = useState('all');
   const [occupation, setOccupation] = useState('all');
@@ -36,13 +36,12 @@ const CriteriaSearch = ({ onSearch }: CriteriaSearchProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="space-y-2">
             <label className="text-sm font-medium">Rentang Usia</label>
-            <div className="px-2">
-              <Slider
-                value={ageRange}
+            <div className="px-2 py-4">
+              <CustomSlider
                 min={18}
                 max={60}
-                step={1}
-                onValueChange={setAgeRange}
+                value={ageRange}
+                onChange={setAgeRange}
               />
             </div>
             <div className="text-sm flex justify-between">

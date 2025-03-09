@@ -17,6 +17,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [gender, setGender] = useState('');
+  const [role, setRole] = useState('participant');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
@@ -50,7 +51,8 @@ const AuthForm = ({ type }: AuthFormProps) => {
         isAuthenticated: true,
         email: email,
         fullName: type === 'login' ? 'User' : fullName,
-        gender: type === 'login' ? 'male' : gender
+        gender: type === 'login' ? 'male' : gender,
+        role: role // Save the selected role
       }));
       
       // Redirect after successful authentication
@@ -176,6 +178,35 @@ const AuthForm = ({ type }: AuthFormProps) => {
             </div>
           </div>
         )}
+        
+        {/* Role selection */}
+        <div className="space-y-2">
+          <Label>Select Role</Label>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              onClick={() => setRole('participant')}
+              className={`p-3 rounded-md border text-center transition-colors ${
+                role === 'participant' 
+                  ? 'bg-gradient-to-r from-taaruf-blue/20 to-taaruf-green/20 border-taaruf-blue text-foreground font-medium' 
+                  : 'border-input/60 text-muted-foreground hover:border-taaruf-blue/50'
+              }`}
+            >
+              Peserta Ta'aruf
+            </button>
+            <button
+              type="button"
+              onClick={() => setRole('admin')}
+              className={`p-3 rounded-md border text-center transition-colors ${
+                role === 'admin' 
+                  ? 'bg-gradient-to-r from-taaruf-blue/20 to-taaruf-green/20 border-taaruf-blue text-foreground font-medium' 
+                  : 'border-input/60 text-muted-foreground hover:border-taaruf-blue/50'
+              }`}
+            >
+              Admin
+            </button>
+          </div>
+        </div>
         
         {type === 'login' && (
           <div className="text-right">

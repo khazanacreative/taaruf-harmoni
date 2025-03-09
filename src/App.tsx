@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +9,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Index from "./pages/Index";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Logout from "./pages/Logout";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import TaarufRequests from "./pages/TaarufRequests";
@@ -18,6 +18,7 @@ import Dashboard from "./pages/Dashboard";
 import Gallery from "./pages/Gallery";
 import MarriageProcess from "./pages/MarriageProcess";
 import NotFound from "./pages/NotFound";
+import PlaceholderPage from "./components/common/PlaceholderPage";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           
           {/* Protected routes with sidebar */}
           <Route path="/dashboard" element={
@@ -78,34 +80,34 @@ const App = () => (
           } />
           <Route path="/meetings" element={
             <ProtectedRoute>
-              <PlaceholderPage title="Jadwal Pertemuan" />
+              <PlaceholderPage title="Jadwal Pertemuan" description="Fitur pengaturan jadwal taaruf offline/online dengan notifikasi & pengingat akan segera hadir." />
             </ProtectedRoute>
           } />
           <Route path="/articles" element={
             <ProtectedRoute>
-              <PlaceholderPage title="Artikel & Edukasi" />
+              <PlaceholderPage title="Artikel & Edukasi" description="Artikel seputar taaruf syar'i dan video kajian & nasihat pernikahan akan segera hadir." />
             </ProtectedRoute>
           } />
           <Route path="/success-stories" element={
             <ProtectedRoute>
-              <PlaceholderPage title="Kisah Sukses" />
+              <PlaceholderPage title="Kisah Sukses" description="Testimoni pengguna yang berhasil menikah dan cerita pengalaman taaruf akan segera hadir." />
             </ProtectedRoute>
           } />
           <Route path="/settings" element={
             <ProtectedRoute>
-              <PlaceholderPage title="Pengaturan" />
+              <PlaceholderPage title="Pengaturan" description="Pengaturan keamanan akun, notifikasi, dan bahasa akan segera hadir." />
             </ProtectedRoute>
           } />
           <Route path="/help" element={
             <ProtectedRoute>
-              <PlaceholderPage title="Bantuan & FAQ" />
+              <PlaceholderPage title="Bantuan & FAQ" description="Panduan penggunaan aplikasi dan kontak admin akan segera hadir." />
             </ProtectedRoute>
           } />
           
           {/* Admin routes */}
           <Route path="/admin/dashboard" element={
             <ProtectedRoute>
-              <PlaceholderPage title="Admin Dashboard" />
+              <PlaceholderPage title="Admin Dashboard" description="Ringkasan statistik pengguna, grafik jumlah permintaan taaruf, dan status keanggotaan akan segera hadir." />
             </ProtectedRoute>
           } />
           <Route path="/admin/users" element={
@@ -160,17 +162,6 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-);
-
-// Temporary placeholder page for routes that aren't implemented yet
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <div className="container max-w-4xl mx-auto py-8">
-    <h1 className="text-2xl font-bold mb-6">{title}</h1>
-    <div className="glass-card p-8 rounded-xl text-center">
-      <p className="text-lg mb-4">Halaman ini sedang dalam pengembangan</p>
-      <p className="text-foreground/70">Fitur ini akan segera tersedia di update berikutnya.</p>
-    </div>
-  </div>
 );
 
 export default App;

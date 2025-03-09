@@ -29,8 +29,7 @@ const Register = () => {
           </div>
           
           <div className="glass-card p-6 rounded-xl">
-            <AuthForm type="register" />         
-           
+            <AuthForm type="register" />           
           </div>
         </div>
       </main>

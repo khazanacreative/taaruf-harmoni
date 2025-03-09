@@ -30,7 +30,6 @@ const Login = () => {
           
           <div className="glass-card p-6 rounded-xl">
             <AuthForm type="login" />           
-           
           </div>
         </div>
       </main>

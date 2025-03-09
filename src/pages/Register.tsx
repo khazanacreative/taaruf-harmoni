@@ -29,14 +29,8 @@ const Register = () => {
           </div>
           
           <div className="glass-card p-6 rounded-xl">
-            <AuthForm type="register" />
-            
-            <div className="mt-6 text-center text-sm">
-              Sudah memiliki akun?{' '}
-              <Link to="/login" className="font-medium text-taaruf-blue hover:underline">
-                Masuk di sini
-              </Link>
-            </div>
+            <AuthForm type="register" />         
+           
           </div>
         </div>
       </main>

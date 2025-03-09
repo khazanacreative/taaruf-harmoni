@@ -29,14 +29,8 @@ const Login = () => {
           </div>
           
           <div className="glass-card p-6 rounded-xl">
-            <AuthForm type="login" />
-            
-            <div className="mt-6 text-center text-sm">
-              Belum memiliki akun?{' '}
-              <Link to="/register" className="font-medium text-taaruf-blue hover:underline">
-                Daftar di sini
-              </Link>
-            </div>
+            <AuthForm type="login" />           
+           
           </div>
         </div>
       </main>

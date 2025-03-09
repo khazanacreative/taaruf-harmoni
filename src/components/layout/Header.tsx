@@ -14,7 +14,7 @@ const Header = () => {
         <Button asChild variant="ghost" size="sm">
           <Link to="/dashboard">
             <Home className="h-4 w-4 mr-2" />
-            Beranda
+            Dashboard
           </Link>
         </Button>
         <Button asChild variant="ghost" size="sm" className="text-red-500 hover:text-red-700 hover:bg-red-50">

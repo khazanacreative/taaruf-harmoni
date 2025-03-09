@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -13,8 +12,6 @@ import {
   Send
 } from 'lucide-react';
 import TaarufProcessComponent from '@/components/taaruf/TaarufProcess';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 
 // Dummy data for active taaruf process
 const activeTaaruf = {
@@ -117,186 +114,179 @@ const TaarufProcess = () => {
   const progressPercentage = (taaruf.currentStep / taaruf.totalSteps) * 100;
   
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      
-      <main className="flex-1 container max-w-4xl mx-auto px-4 py-8">
-        <div className="space-y-6">
-          <h1 className="text-2xl font-bold text-center">Proses Ta'aruf</h1>
-          
-          {taaruf ? (
-            <>
-              <Card className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/4 bg-gradient-to-br from-taaruf-blue/10 to-taaruf-green/10">
-                      <div className="p-4 text-center">
-                        <div className="rounded-full overflow-hidden w-24 h-24 mx-auto mb-3 border-4 border-white">
-                          <img
-                            src={taaruf.partner.imageUrl}
-                            alt={taaruf.partner.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <h3 className="font-semibold">{taaruf.partner.name}, {taaruf.partner.age}</h3>
-                        <p className="text-sm text-foreground/70">{taaruf.partner.location}</p>
-                        <p className="text-xs mt-2 text-foreground/60">
-                          Dimulai pada: {taaruf.startDate}
-                        </p>
+    <div className="flex flex-col">
+      <div className="space-y-6">
+        <h1 className="text-2xl font-bold">Proses Ta'aruf</h1>
+        
+        {taaruf ? (
+          <>
+            <Card className="overflow-hidden">
+              <CardContent className="p-0">
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-1/4 bg-gradient-to-br from-taaruf-blue/10 to-taaruf-green/10">
+                    <div className="p-4 text-center">
+                      <div className="rounded-full overflow-hidden w-24 h-24 mx-auto mb-3 border-4 border-white">
+                        <img
+                          src={taaruf.partner.imageUrl}
+                          alt={taaruf.partner.name}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
+                      <h3 className="font-semibold">{taaruf.partner.name}, {taaruf.partner.age}</h3>
+                      <p className="text-sm text-foreground/70">{taaruf.partner.location}</p>
+                      <p className="text-xs mt-2 text-foreground/60">
+                        Dimulai pada: {taaruf.startDate}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 md:w-3/4">
+                    <div className="mb-4">
+                      <h3 className="text-sm font-medium text-foreground/70 mb-1">Progress Ta'aruf</h3>
+                      <Progress value={progressPercentage} className="h-2 bg-gray-100" />
                     </div>
                     
-                    <div className="p-4 md:w-3/4">
-                      <div className="mb-4">
-                        <h3 className="text-sm font-medium text-foreground/70 mb-1">Progress Ta'aruf</h3>
-                        <Progress value={progressPercentage} className="h-2 bg-gray-100" />
-                      </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+                      {[1, 2, 3, 4].map((step) => (
+                        <div 
+                          key={step} 
+                          className={`text-xs rounded-lg p-2 flex items-center justify-center flex-col text-center ${
+                            step === taaruf.currentStep 
+                              ? 'bg-gradient-to-r from-taaruf-blue/20 to-taaruf-green/20 border border-taaruf-blue/30 font-medium' 
+                              : step < taaruf.currentStep 
+                                ? 'bg-muted/50 text-foreground/70' 
+                                : 'bg-muted/20 text-foreground/50'
+                          }`}
+                        >
+                          <div className={`w-7 h-7 rounded-full flex items-center justify-center mb-1 ${
+                            step === taaruf.currentStep 
+                              ? 'bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white' 
+                              : step < taaruf.currentStep 
+                                ? 'bg-foreground/20 text-foreground' 
+                                : 'bg-foreground/10 text-foreground/50'
+                          }`}>
+                            {step < taaruf.currentStep ? (
+                              <Check className="h-4 w-4" />
+                            ) : (
+                              renderStepIcon(step)
+                            )}
+                          </div>
+                          {renderStepLabel(step)}
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="mb-4">
+                      {taaruf.currentStep === 1 && (
+                        <div className="p-4 bg-muted/20 rounded-lg">
+                          <h4 className="font-medium mb-2">Tahap Komunikasi Awal</h4>
+                          <p className="text-sm">Pada tahap ini, Anda dan calon pasangan saling mengenal visi, misi, dan nilai-nilai dasar dalam pernikahan.</p>
+                        </div>
+                      )}
                       
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
-                        {[1, 2, 3, 4].map((step) => (
-                          <div 
-                            key={step} 
-                            className={`text-xs rounded-lg p-2 flex items-center justify-center flex-col text-center ${
-                              step === taaruf.currentStep 
-                                ? 'bg-gradient-to-r from-taaruf-blue/20 to-taaruf-green/20 border border-taaruf-blue/30 font-medium' 
-                                : step < taaruf.currentStep 
-                                  ? 'bg-muted/50 text-foreground/70' 
-                                  : 'bg-muted/20 text-foreground/50'
-                            }`}
-                          >
-                            <div className={`w-7 h-7 rounded-full flex items-center justify-center mb-1 ${
-                              step === taaruf.currentStep 
-                                ? 'bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white' 
-                                : step < taaruf.currentStep 
-                                  ? 'bg-foreground/20 text-foreground' 
-                                  : 'bg-foreground/10 text-foreground/50'
-                            }`}>
-                              {step < taaruf.currentStep ? (
-                                <Check className="h-4 w-4" />
-                              ) : (
-                                renderStepIcon(step)
-                              )}
-                            </div>
-                            {renderStepLabel(step)}
-                          </div>
-                        ))}
-                      </div>
-                      
-                      {/* Update the TaarufProcessComponent call to pass props */}
-                      <div className="mb-4">
-                        {taaruf.currentStep === 1 && (
-                          <div className="p-4 bg-muted/20 rounded-lg">
-                            <h4 className="font-medium mb-2">Tahap Komunikasi Awal</h4>
-                            <p className="text-sm">Pada tahap ini, Anda dan calon pasangan saling mengenal visi, misi, dan nilai-nilai dasar dalam pernikahan.</p>
-                          </div>
-                        )}
-                        
-                        {taaruf.currentStep === 2 && (
-                          <div className="p-4 bg-muted/20 rounded-lg">
-                            <h4 className="font-medium mb-2">Tahap Diskusi Mendalam</h4>
-                            <p className="text-sm">Saatnya membahas lebih detail tentang kehidupan, kebiasaan, harapan terhadap pasangan, dan rencana keluarga.</p>
-                          </div>
-                        )}
-                        
-                        {taaruf.currentStep === 3 && (
-                          <div className="p-4 bg-muted/20 rounded-lg">
-                            <h4 className="font-medium mb-2">Tahap Pelibatan Keluarga</h4>
-                            <p className="text-sm">Waktunya melibatkan wali atau keluarga untuk mendiskusikan rencana pernikahan lebih lanjut.</p>
-                          </div>
-                        )}
-                        
-                        {taaruf.currentStep === 4 && (
-                          <div className="p-4 bg-muted/20 rounded-lg">
-                            <h4 className="font-medium mb-2">Tahap Pertemuan Nadzor</h4>
-                            <p className="text-sm">Pertemuan langsung dengan kehadiran wali untuk menentukan kelanjutan hubungan menuju pernikahan.</p>
-                          </div>
-                        )}
-                      </div>
+                      {taaruf.currentStep === 2 && (
+                        <div className="p-4 bg-muted/20 rounded-lg">
+                          <h4 className="font-medium mb-2">Tahap Diskusi Mendalam</h4>
+                          <p className="text-sm">Saatnya membahas lebih detail tentang kehidupan, kebiasaan, harapan terhadap pasangan, dan rencana keluarga.</p>
+                        </div>
+                      )}
                       
                       {taaruf.currentStep === 3 && (
-                        <div className="mt-4">
-                          <Button 
-                            className="w-full bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white hover:opacity-90"
-                            onClick={handleRequestNadzor}
-                          >
-                            <Heart className="h-4 w-4 mr-2" />
-                            Ajukan Pertemuan Nadzor
-                          </Button>
+                        <div className="p-4 bg-muted/20 rounded-lg">
+                          <h4 className="font-medium mb-2">Tahap Pelibatan Keluarga</h4>
+                          <p className="text-sm">Waktunya melibatkan wali atau keluarga untuk mendiskusikan rencana pernikahan lebih lanjut.</p>
+                        </div>
+                      )}
+                      
+                      {taaruf.currentStep === 4 && (
+                        <div className="p-4 bg-muted/20 rounded-lg">
+                          <h4 className="font-medium mb-2">Tahap Pertemuan Nadzor</h4>
+                          <p className="text-sm">Pertemuan langsung dengan kehadiran wali untuk menentukan kelanjutan hubungan menuju pernikahan.</p>
                         </div>
                       )}
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <div className="glass-card p-4 rounded-xl overflow-hidden">
-                <h3 className="text-lg font-medium mb-4">Percakapan Ta'aruf</h3>
-                
-                <div className="space-y-4 max-h-80 overflow-y-auto mb-4 p-2">
-                  {taaruf.messages.map((message) => (
-                    <div 
-                      key={message.id} 
-                      className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                    >
-                      <div 
-                        className={`max-w-[80%] rounded-xl p-3 ${
-                          message.sender === 'user' 
-                            ? 'bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white' 
-                            : 'bg-muted'
-                        }`}
-                      >
-                        <p className="text-sm">{message.text}</p>
-                        <p className={`text-xs mt-1 ${
-                          message.sender === 'user' ? 'text-white/70' : 'text-foreground/60'
-                        }`}>
-                          {message.timestamp}
-                        </p>
+                    
+                    {taaruf.currentStep === 3 && (
+                      <div className="mt-4">
+                        <Button 
+                          className="w-full bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white hover:opacity-90"
+                          onClick={handleRequestNadzor}
+                        >
+                          <Heart className="h-4 w-4 mr-2" />
+                          Ajukan Pertemuan Nadzor
+                        </Button>
                       </div>
-                    </div>
-                  ))}
+                    )}
+                  </div>
                 </div>
-                
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Ketik pesan Anda..."
-                    className="flex-1 p-2 border border-border rounded-lg"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-                  />
-                  <Button 
-                    size="icon" 
-                    onClick={handleSendMessage}
-                    className="bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white hover:opacity-90"
+              </CardContent>
+            </Card>
+            
+            <div className="glass-card p-4 rounded-xl overflow-hidden">
+              <h3 className="text-lg font-medium mb-4">Percakapan Ta'aruf</h3>
+              
+              <div className="space-y-4 max-h-80 overflow-y-auto mb-4 p-2">
+                {taaruf.messages.map((message) => (
+                  <div 
+                    key={message.id} 
+                    className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
-                    <Send className="h-4 w-4" />
-                  </Button>
-                </div>
+                    <div 
+                      className={`max-w-[80%] rounded-xl p-3 ${
+                        message.sender === 'user' 
+                          ? 'bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white' 
+                          : 'bg-muted'
+                      }`}
+                    >
+                      <p className="text-sm">{message.text}</p>
+                      <p className={`text-xs mt-1 ${
+                        message.sender === 'user' ? 'text-white/70' : 'text-foreground/60'
+                      }`}>
+                        {message.timestamp}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </>
-          ) : (
-            <div className="text-center py-20 glass-card rounded-xl">
-              <Heart className="mx-auto h-16 w-16 text-foreground/20 mb-4" />
-              <h2 className="text-xl font-medium mb-2">Tidak Ada Proses Ta'aruf Aktif</h2>
-              <p className="text-foreground/70 max-w-md mx-auto mb-6">
-                Anda belum memiliki proses ta'aruf yang aktif saat ini. Mulai dengan mencari calon pasangan dan mengirim permintaan ta'aruf.
-              </p>
-              <Button 
-                className="bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white hover:opacity-90"
-                asChild
-              >
-                <a href="/search">
-                  Cari Calon Pasangan
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </a>
-              </Button>
+              
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Ketik pesan Anda..."
+                  className="flex-1 p-2 border border-border rounded-lg"
+                  value={newMessage}
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+                />
+                <Button 
+                  size="icon" 
+                  onClick={handleSendMessage}
+                  className="bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white hover:opacity-90"
+                >
+                  <Send className="h-4 w-4" />
+                </Button>
+              </div>
             </div>
-          )}
-        </div>
-      </main>
-      
-      <Footer />
+          </>
+        ) : (
+          <div className="text-center py-20 glass-card rounded-xl">
+            <Heart className="mx-auto h-16 w-16 text-foreground/20 mb-4" />
+            <h2 className="text-xl font-medium mb-2">Tidak Ada Proses Ta'aruf Aktif</h2>
+            <p className="text-foreground/70 max-w-md mx-auto mb-6">
+              Anda belum memiliki proses ta'aruf yang aktif saat ini. Mulai dengan mencari calon pasangan dan mengirim permintaan ta'aruf.
+            </p>
+            <Button 
+              className="bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white hover:opacity-90"
+              asChild
+            >
+              <a href="/search">
+                Cari Calon Pasangan
+                <ChevronRight className="h-4 w-4 ml-1" />
+              </a>
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

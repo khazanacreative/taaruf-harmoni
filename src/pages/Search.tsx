@@ -152,7 +152,7 @@ const Search = () => {
           </div>
         </div>
       </main>
-      
+            
     </div>
   );
 };

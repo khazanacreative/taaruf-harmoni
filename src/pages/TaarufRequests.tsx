@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 // SVG components for gender-specific icons
 const MaleIcon = () => (
   <svg 
-    xmlns="http://www.w3.org/2000/svg" 
+    xmlns="https://www.svgrepo.com/show/420361/avatar-man-muslim.svg" 
     viewBox="0 0 512 512" 
     className="w-full h-full"
     fill="currentColor"
@@ -20,7 +20,7 @@ const MaleIcon = () => (
 
 const FemaleIcon = () => (
   <svg 
-    xmlns="http://www.w3.org/2000/svg" 
+    xmlns="https://www.svgrepo.com/show/420332/avatar-muslim-paranja.svg" 
     viewBox="0 0 512 512" 
     className="w-full h-full"
     fill="currentColor"

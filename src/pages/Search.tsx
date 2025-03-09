@@ -77,8 +77,6 @@ const Search = () => {
   
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
-      
       <main className="flex-1 container max-w-7xl mx-auto px-4 py-8">
         <div className="space-y-6">
           <h1 className="text-2xl font-bold text-center">Cari Calon Pasangan</h1>

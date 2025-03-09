@@ -21,7 +21,7 @@ import AppLayout from '@/components/layout/AppLayout';
 // Muslim icons as SVG components
 const MaleIcon = () => (
   <svg 
-    xmlns="http://www.w3.org/2000/svg" 
+    xmlns="https://www.svgrepo.com/show/420361/avatar-man-muslim.svg" 
     viewBox="0 0 400 400" 
     className="w-full h-full"
     fill="currentColor"
@@ -32,7 +32,7 @@ const MaleIcon = () => (
 
 const FemaleIcon = () => (
   <svg 
-    xmlns="http://www.w3.org/2000/svg" 
+    xmlns="https://www.svgrepo.com/show/420332/avatar-muslim-paranja.svg" 
     viewBox="0 0 400 400" 
     className="w-full h-full"
     fill="currentColor"
@@ -225,15 +225,6 @@ const ProfileDetail = () => {
                       <p className="text-xs text-foreground/60">Lahir</p>
                       <p className="font-medium">{profile.birthplace}</p>
                     </div>
-                  </div>
-                  
-                  <div className="w-full mt-6">
-                    <Button 
-                      className="w-full bg-gradient-to-r from-taaruf-blue to-taaruf-green text-white hover:opacity-90"
-                    >
-                      <Heart className="h-4 w-4 mr-2" />
-                      Kirim Permintaan Ta'aruf
-                    </Button>
                   </div>
                 </div>
               </CardContent>

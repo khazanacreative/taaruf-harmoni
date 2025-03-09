@@ -9,8 +9,6 @@ import Footer from '@/components/layout/Footer';
 const Profile = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
-      
       <main className="flex-1 container max-w-4xl mx-auto px-4 py-8">
         <div className="space-y-6">
           <div className="text-center">

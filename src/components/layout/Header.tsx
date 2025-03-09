@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between p-4 bg-white border-b h-[72px]">
       <Link to="/" className="text-lg font-bold text-gradient">
-        Taaruf Arrahman
+        Taaruf Ar Rahman
       </Link>
       
       <div className="flex items-center gap-2">

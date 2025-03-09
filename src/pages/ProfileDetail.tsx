@@ -145,20 +145,6 @@ const ProfileDetail = () => {
     }, 500);
   }, [id]);
   
-  if (loading) {
-    return (
-      <AppLayout>
-        <div className="flex items-center justify-center h-full">
-          <div className="animate-pulse flex flex-col items-center">
-            <div className="h-20 w-20 bg-muted rounded-full mb-4"></div>
-            <div className="h-4 w-40 bg-muted rounded mb-2"></div>
-            <div className="h-3 w-60 bg-muted rounded"></div>
-          </div>
-        </div>
-      </AppLayout>
-    );
-  }
-  
   if (!profile) {
     return (
       <AppLayout>
@@ -333,7 +319,6 @@ const ProfileDetail = () => {
           </div>
         </div>
       </div>
-    </AppLayout>
   );
 };
 
